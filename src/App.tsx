@@ -16,7 +16,6 @@ function App() {
             <Main/>
             <Skills/>
             <Works/>
-            <Works/>
             <Testimony/>
             <Contact/>
             <Slogan/>
