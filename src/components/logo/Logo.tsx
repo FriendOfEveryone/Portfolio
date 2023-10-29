@@ -1,9 +1,10 @@
 import React from "react";
-import { Icon } from "../icon/Icon";
-export const Logo = () => {
+import {Icon} from "../icon/Icon";
+
+export const Logo: React.FC = () => {
     return (
         <a href="#">
-            <Icon iconId = 'codeSvg'/>
+            <Icon iconId='codeSvg'/>
         </a>
     );
 };

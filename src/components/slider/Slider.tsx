@@ -1,68 +1,44 @@
 import React from "react";
-import styled from "styled-components";
-import { FlexWrapper } from "../FlexWrapper";
-import { theme } from "../../styles/theme";
+import {FlexWrapper} from "../FlexWrapper";
+import {S} from "./Slider_Styles";
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css"
+import "./../../styles/slider.css"
+
+type SlidePropsType = {
+    text: string,
+    userName: string
+}
+
+const Slide = (props: SlidePropsType) => {
+    return (
+        <S.Slide>
+            <S.Text >
+                {props.text}
+            </S.Text>
+            <S.Name>@{props.userName}</S.Name>
+        </S.Slide>
+    )
+}
+
+const items = [
+    <Slide userName={"ivan ivanow"} text={"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do\n" +
+        "eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim.\n" +
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit."} />,
+    <Slide userName={"petr petrov"} text={"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do\n" +
+        "eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim.\n" +
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit."} />,
+    <Slide userName={"bogdan bogdanov"} text={"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do\n" +
+        "eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim.\n" +
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit."} />
+];
 
 export const Slider = () => {
-  return (
-    <StyledSlider>
-      <FlexWrapper>
-        <Slide>
-          <Text>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          </Text>
-          <Name>@ivan ivanow</Name>
-        </Slide>
-      </FlexWrapper>
-      <Pagination>
-        <span></span>
-        <span className="active"></span>
-        <span></span>
-      </Pagination>
-    </StyledSlider>
-  );
+    return (
+        <S.Slider>
+            <AliceCarousel mouseTracking items={items}/>
+        </S.Slider>
+
+    )
 };
 
-const StyledSlider = styled.div`
-  max-width: 500px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const Slide = styled.div`
-  text-align: center;
-`;
-
-const Text = styled.p``;
-
-const Name = styled.span`
-  display: inline-block;
-  font-size: 16px;
-  font-family: "Josefin Sans", sans-serif;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin: 22px 0 42px;
-`;
-
-const Pagination = styled.div`
-  span {
-    display: inline-block;
-    width: 7px;
-    height: 7px;
-    border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.5);
-    & + span {
-      margin-left: 5px;
-    }
-
-    &.active {
-      background-color: ${theme.colors.accent};
-      width: 20px;
-    }
-
-  }
-`;
