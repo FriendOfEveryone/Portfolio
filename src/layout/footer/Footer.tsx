@@ -44,7 +44,7 @@ export const Footer:React.FC = () => {
                             )
                         })}
                     </S.SocialList>
-                    <S.Copyright>© 2023 Svetlana Dyablo, All Rights Reserved.</S.Copyright>
+                    <S.Copyright>© 2023 Sudnikov Denis, All Rights Reserved.</S.Copyright>
                 </FlexWrapper>
             </Container>
         </S.Footer>

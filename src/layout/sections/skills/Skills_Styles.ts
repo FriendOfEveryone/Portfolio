@@ -2,12 +2,12 @@ import styled from "styled-components";
 import {theme} from "../../../styles/theme";
 
 const Skills = styled.section`
+    position: relative;
 `;
 
 const Skill = styled.div`
   width: 330px;
   padding: 42px 20px 52px;
-  flex-grow: 1;
   
   @media ${theme.media.mobile} {
     padding: 62px 0 40px;

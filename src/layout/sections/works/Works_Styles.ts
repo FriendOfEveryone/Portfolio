@@ -7,8 +7,8 @@ const Works = styled.section``;
 
 const Work = styled.div`
   background-color: ${theme.colors.secondaryBg};
-  width: 330px;
-  flex-grow: 1;
+  //width: 330px;
+  //flex-grow: 1;
 
   ${Link} {
     padding: 10px 0;
@@ -17,9 +17,9 @@ const Work = styled.div`
       margin-left: 20px;
     }
   }
-  @media ${theme.media.desktop} {
-    max-width: 540px;
-  }
+  // @media ${theme.media.desktop} {
+  //   max-width: 540px;
+  // }
 `;
 
 const ImageWrapper = styled.div`
@@ -29,8 +29,9 @@ const ImageWrapper = styled.div`
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    display: none;
+    transform: translate(-50%, -35%);
+    transition: ${theme.animation.transition};
+    opacity: 0;
 
     &::before {
       width: 100%;
@@ -39,7 +40,7 @@ const ImageWrapper = styled.div`
   }
 
   &::before {
-    display: none;
+    opacity: 0;
     content: "";
     position: absolute;
     left: 0;
@@ -48,15 +49,17 @@ const ImageWrapper = styled.div`
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(3px);
+    transition: ${theme.animation.transition};
   }
 
   &:hover {
     &::before {
-      display: block;
+      opacity: 1;
     }
     
     ${StyledButton} {
-      display: block;
+      opacity: 1;
+      transform: translate(-50%, -50%);
     }
   }
   

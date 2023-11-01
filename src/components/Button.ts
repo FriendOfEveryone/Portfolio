@@ -22,13 +22,13 @@ export const StyledButton = styled.button`
     margin: 0 auto;
     background-color: ${theme.colors.accent};
     z-index: -1;
+    transition: ${theme.animation.transition};
   }
 
   &:hover {
         &::before {
             width: 100%;
             height: 100%;
-            transition-duration: .2s;
         }
     }
 `;

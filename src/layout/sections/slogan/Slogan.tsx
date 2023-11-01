@@ -19,4 +19,5 @@ export const Slogan: React.FC = () => {
 };
 
 const StyledSlogan = styled.section`
+    position: relative;
 `;

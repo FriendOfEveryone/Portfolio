@@ -31,14 +31,13 @@ background-color: rgba(255, 255, 255, 0.1);
 border-radius: 50%;
 width: 35px;
 height: 35px;
-
+  transition-duration: ${theme.animation.transition};
 color: ${theme.colors.accent};
 
 &:hover{
   color: ${theme.colors.primiryBg};
   transform: translateY(-4px);
   background-color: ${theme.colors.accent};
-  transition-duration: .2s;
 }
 
 `;

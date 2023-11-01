@@ -43,11 +43,15 @@ const Name = styled.h2`
 
 const MainTitle = styled.h1`
   ${font({weight: 400, fMax: 27, fMin: 20})};
+  p {
+    display: none;
+  }
 `;
 
 const PhotoWrapper = styled.div`
   position: relative;
   z-index: 0;
+  user-select: none;
 
   &::before {
     content: " ";
@@ -58,6 +62,7 @@ const PhotoWrapper = styled.div`
     top: -24px;
     left: 24px;
     z-index: -1;
+    border-radius: 20% 5% 20% 5%;
     @media ${theme.media.mobile} {
         width: 314px;
         height: 414px;
@@ -77,6 +82,7 @@ const Photo = styled.img`
   height: 450px;
   object-fit: cover;
   margin-right: 20px;
+  border-radius: 20% 5% 20% 5%;
   
   @media ${theme.media.mobile} {
     width: 310px;

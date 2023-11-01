@@ -1,13 +1,6 @@
 import styled, {css} from "styled-components";
 import {theme} from "../../../styles/theme";
-
-const Link = styled.a`
-  font-family: "Josefin Sans", sans-serif;
-  font-weight: 400;
-  font-size: 30px;
-  text-align: center;
-  color: transparent;
-`;
+import {Link} from "react-scroll";
 
 const Mask = styled.span`
   position: absolute;
@@ -17,6 +10,8 @@ const Mask = styled.span`
   height: 50%;
   overflow-y: hidden;
   color: ${theme.colors.accent};
+  transition-duration: ${theme.animation.transition};
+  
 
   & + & {
     top: 50%;
@@ -27,12 +22,16 @@ const Mask = styled.span`
   }
 `;
 
-const MenuItem = styled.li`
-  position: relative;
+const NavLink = styled(Link)`
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  text-align: center;
+  color: transparent;
+  text-transform: capitalize;
 
   &::before {
     content: "";
-    display: none;
     height: 1.5px;
     background-color: ${theme.colors.accent};
     position: absolute;
@@ -40,12 +39,14 @@ const MenuItem = styled.li`
     left: -10px;
     right: -10px;
     z-index: 1;
+    transform: scale(0);
+    transition-duration: ${theme.animation.transition};
   }
 
-  &:hover {
+  &:hover, &.active {
 
     &::before{
-        display: inline-block;
+      transform: scale(1);
     }
 
     ${Mask} {
@@ -54,9 +55,14 @@ const MenuItem = styled.li`
       & + ${Mask} {
         transform: skewX(12deg) translateX(-5px);
       }
-      transition-duration: .15s;
     }
   }
+`;
+
+const MenuItem = styled.li`
+  position: relative;
+
+  
 `;
 
 // Mobile Menu
@@ -121,22 +127,28 @@ const MenuPopup = styled.div <{ isOpen: boolean }>`
   right: 0;
   bottom: 0;
   background-color: rgba(31, 31, 32, 0.9);
-  display: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   z-index: 999;
-
-  ${props => props.isOpen && css<{ isOpen: boolean }>`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  `}
+  transform: translateY(-100%);
+  transition-duration: 1s;
   
   ul {
     display: flex;
-    gap: 30px;
+    gap: 10px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    transition-duration: 1s;
   }
+
+  ${props => props.isOpen && css<{ isOpen: boolean }>`
+    transform: translateY(0);
+    ul {
+      gap: 50px
+    }
+  `}
 `;
 
 // Desktop Menu
@@ -150,7 +162,7 @@ const DesktopMenu = styled.nav`
 `
 
 export const S = {
-    Link, MenuItem, Mask,
+    NavLink, MenuItem, Mask,
     MobileMenu, BurgerButton, MenuPopup,
     DesktopMenu
 }

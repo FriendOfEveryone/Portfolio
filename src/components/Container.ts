@@ -5,6 +5,7 @@ type ConteinerPropertyTypes = {
 }
 
 export const Container = styled.div<ConteinerPropertyTypes>`
+  position: relative;
     max-width: 1170px;
     width: 100%;
     min-height: 100%;
