@@ -19,7 +19,7 @@ export const Main = () => {
                             <p>A Web Developer</p>
                             <Typewriter
                                 options={{
-                                    strings: ['A Web Developer.', 'A Frontend Developer.', 'A web Designer.'],
+                                    strings: ['A Web Developer.', 'A Frontend Developer.', 'A Web Designer.'],
                                     autoStart: true,
                                     loop: true,
                                     delay: 50,
