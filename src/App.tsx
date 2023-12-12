@@ -9,22 +9,31 @@ import {Works} from "./layout/sections/works/Works";
 import {Slogan} from "./layout/sections/slogan/Slogan";
 import {Particle} from "./components/particle/Particle";
 import {GoToTopBtn} from "./components/goTopBtn/GoTopBtn";
+import {WindowEmpty} from "./components/WindowEmpty";
+import {useState} from "react";
 
 function App() {
-    return (
-        <div className="App">
-            <Particle/>
-            <Header/>
-            <Main/>
-            <Skills/>
-            <Works/>
-            <Testimony/>
-            <Contact/>
-            <Slogan/>
-            <Footer/>
-            <GoToTopBtn/>
-        </div>
-    );
+
+   const [closed, setClosed] = useState(true)
+
+   return (
+      <div className="App">
+         <Particle/>
+         <Header/>
+         <Main/>
+         <Skills/>
+         <Works setClosed={setClosed}/>
+         <Testimony/>
+         <Contact/>
+         <Slogan/>
+         <Footer setClosed={setClosed}/>
+         <GoToTopBtn/>
+         <WindowEmpty closed={closed}>
+            <button onClick={() => setClosed(true)}>X</button>
+            <p>Empty :(</p>
+         </WindowEmpty>
+      </div>
+   );
 }
 
 export default App;

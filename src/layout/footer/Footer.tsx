@@ -9,20 +9,22 @@ import {S} from "./Footer_Styles";
 
 const SocialItemData = [
     {
-        id: "instagram"
+        id: "instagram",
     },
     {
-        id: "telegram"
+        id: "telegram",
+        link: "https://t.me/TapokBabki"
     },
     {
-        id: "vk"
+        id: "vk",
     },
     {
-        id: "linkedin"
+        id: "linkedin",
+        link: "https://www.linkedin.com/in/denis-sudnikau-187b12256"
     },
 ]
 
-export const Footer:React.FC = () => {
+export const Footer:React.FC <{setClosed: (value: boolean) => void}> = ({setClosed}) => {
     return (
         <S.Footer>
             <Container border="1px">
@@ -32,7 +34,7 @@ export const Footer:React.FC = () => {
                         {SocialItemData.map((item, index) => {
                             return (
                                 <S.SocialItem key={index}>
-                                    <S.SocialLink href="#">
+                                    <S.SocialLink onClick={()=>{if (!item.link) setClosed(false)}} href={item.link ? item.link : "##"}>
                                         <Icon
                                             height="21px"
                                             width="21px"
